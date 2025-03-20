@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Debug private key
+        run: |
+          echo "${{ secrets.TRAYECT03_KEY }}" > private-key
+          cat private-key
       - name: Checkout code
         uses: actions/checkout@v3
 
