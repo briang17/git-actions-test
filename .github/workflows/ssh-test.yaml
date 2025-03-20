@@ -11,18 +11,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Debug private key
+      - name: Debug private key
         run: |
           echo "${{ secrets.TRAYECT03_KEY }}" > private-key
           cat private-key
+
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Add SSH key
         uses: webfactory/ssh-agent@v0.7.0
         with:
-          ssh-private-key: ${{ secrets.TRAYECTO3_KEY }}
+          ssh-private-key: ${{ secrets.TRAYECT03_KEY }}
 
       - name: Test SSH connection
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.TRAYECTO3_USER }}@${{ secrets.TRAYECTO3_HOST }} "echo 'Hello, VPS!'"
+          ssh -o StrictHostKeyChecking=no ${{ secrets.TRAYECT03_USER }}@${{ secrets.TRAYECT03_HOST }} "echo 'Hello, VPS!'"
