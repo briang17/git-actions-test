@@ -36,7 +36,7 @@ jobs:
           MYSQL_PASS: ${{ secrets.TRAYECTO3_MYSQL_PASS }}
           MYSQL_DB: ${{ secrets.TRAYECTO3_MYSQL_DB }}
         run: |
-          ssh -i private_key.pem -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST << 'EOF'
+          ssh -i private_key.pem -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST << EOF
             mysql -u"$MYSQL_USER" -p"$MYSQL_PASS" -e "DROP DATABASE IF EXISTS $MYSQL_DB; CREATE DATABASE $MYSQL_DB;"
             mysql -u"$MYSQL_USER" -p"$MYSQL_PASS" "$MYSQL_DB" < /home/brian/sql/savyc.sql
           EOF
