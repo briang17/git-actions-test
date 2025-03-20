@@ -18,8 +18,8 @@ jobs:
         uses: webfactory/ssh-agent@v0.7.0
         with:
           ssh-private-key: |
-            ${{ secrets.TRAYECT03_KEY }}
+            ${{ secrets.TRAYECTO3_KEY }}
 
       - name: Test SSH connection
         run: |
-          ssh -o StrictHostKeyChecking=no -i private-key ${{ secrets.TRAYECT03_USER }}@${{ secrets.TRAYECT03_HOST }} "echo 'Hello, VPS!'"
+          ssh -o StrictHostKeyChecking=no -i private-key ${{ secrets.TRAYECTO3_USER }}@${{ secrets.TRAYECTO3_HOST }} "echo 'Hello, VPS!'"
