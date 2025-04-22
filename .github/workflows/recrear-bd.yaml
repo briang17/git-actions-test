@@ -3,7 +3,9 @@ name: Recrear BD
 on:
   push:
     branches:
-      - sql
+      - main
+    paths:
+      - 'savyc.sql'
   workflow_dispatch:
 
 jobs:
